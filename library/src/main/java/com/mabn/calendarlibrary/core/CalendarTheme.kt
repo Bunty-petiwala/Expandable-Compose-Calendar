@@ -1,5 +1,6 @@
 package com.mabn.calendarlibrary.core
 
+import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
@@ -16,8 +17,15 @@ data class CalendarTheme(
     val selectedDayValueTextColor: Color,
     val headerTextColor: Color,
     val weekDaysTextColor: Color,
+    val selectedWeekDaysTextColor: Color,
     val dayShape: Shape
 )
+
+val appGradientStart = Color(0xFF2096F3)
+
+
+@get:Composable
+val Colors.textColor: Color get() = if (isLight) Color.Black else Color.White
 
 val calendarDefaultTheme: CalendarTheme
     @Composable
@@ -31,6 +39,7 @@ val calendarDefaultTheme: CalendarTheme
         selectedDayValueTextColor = MaterialTheme.colors.onBackground,
         headerTextColor = MaterialTheme.colors.onBackground,
         weekDaysTextColor = MaterialTheme.colors.onBackground,
+        selectedWeekDaysTextColor = MaterialTheme.colors.primary,
         dayShape = RectangleShape
 
     )
